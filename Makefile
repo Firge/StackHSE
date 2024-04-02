@@ -1,3 +1,10 @@
+build_googletest: googletest
+	mkdir $@
+	cd $@ && cmake ../$< && make && make install
+
+clean_googletest: build_googletest
+	rm -rd $<
+
 CC = g++
 
 CFLAGS = -std=c++14 -Wall -Wextra -lgtest -lgtest_main -pthread
